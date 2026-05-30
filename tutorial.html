@@ -159,6 +159,25 @@
                 });
             </script>
         </div>
+        
+        <div class="glass-card animate-up" style="margin-top: 2rem;">
+            <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">Impact & Importance</h2>
+            
+            <h4 style="color: var(--accent-gold); margin-bottom: 0.5rem;">The Impact on a Program</h4>
+            <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+                In terms of impact, it boils down to its efficiency in memory writes. As cycle sort minimizes the number of time you have to write to memory on the basis that if it's already in the right place, the element is written 0 times, it's the logical go-to solution when sorting data using EEPROMs (Electrically Erasable Programmable Read-Only Memory).
+            </p>
+
+            <h4 style="color: var(--accent-gold); margin-bottom: 0.5rem;">Common Mistakes & How to Avoid Them</h4>
+            <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+                The most common mistake would probably be a miscalculation with the counting. As you count the number of elements smaller than the value of the current element, many errors could occur, like miscounting the wrong number causing the target index to be incorrect setting off a chain reaction where data will get stuck and overwrite the incorrect data. As a key to avoid this from happening, it's important to loop the entire rest of array when counting so duplicate values can be handled appropraitely by avoiding them.
+            </p>
+
+            <h4 style="color: var(--accent-gold); margin-bottom: 0.5rem;">What if we didn't use this?</h4>
+            <p style="line-height: 1.6; margin-bottom: 0;">
+                Cycle sort doesn't have many alternatives as it is one of a kind in a way. That being said though, without cycle sort we would probably rely on other sorting methods like Quick Sort or Merge Sort. While they can be faster in time complexity, the number of memory writes drastically increases. If this were to happen, certain hardwares and drives such as embedded systems would be unable to run for a longer period of time as they would wear out a lot faster. 
+            </p>
+        </div>
     </section>
 
     <footer class="footer">
