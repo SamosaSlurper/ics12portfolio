@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Citations & Resources | ICS Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .citation-link {
+            display: block;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 4px 8px 8px 4px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .citation-link:hover {
+            background: rgba(0, 255, 102, 0.1);
+            transform: translateX(10px);
+        }
+        .citation-category {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="experience.html">Experience</a>
+            <a href="learning.html">Course Learning</a>
+            <a href="tutorial.html">Tutorial</a>
+            <a href="future.html">Future Goals</a>
+            <a href="citations.html" class="active">Citations</a>
+        </div>
+    </nav>
+    <div style="height: 80px;"></div>
+
+    <header class="page-header">
+        <h1 class="animate-up">Resources & <span style="color: var(--accent-secondary);">Citations</span></h1>
+    </header>
+
+    <section class="section-container" style="padding-top: 0; max-width: 900px;">
+        <div class="glass-card animate-up delay-1" style="padding: 3rem;">
+            <h2 style="color: var(--accent-primary); margin-bottom: 2rem;">Works Cited & Further Reading</h2>
+            
+            <a href="https://www.geeksforgeeks.org/cycle-sort/" target="_blank" class="citation-link">
+                <span class="citation-category">Cycle Sort</span>
+                <strong>GeeksforGeeks: Cycle Sort Algorithm</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Primary resource used to understand, build, and teach the Cycle Sort presentation.</span>
+            </a>
+
+            <a href="https://www.w3schools.com/java/java_oop.asp" target="_blank" class="citation-link">
+                <span class="citation-category">Object Oriented Programming</span>
+                <strong>W3Schools: Java OOP Concepts</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Reference for Java class structure, encapsulation, constructors, and object instantiation.</span>
+            </a>
+
+            <a href="https://docs.oracle.com/javase/tutorial/java/IandI/subclasses.html" target="_blank" class="citation-link">
+                <span class="citation-category">Inheritance & Polymorphism</span>
+                <strong>Oracle Java Documentation: Inheritance</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Detailed guidelines on extending classes and understanding the 'super' and 'final' keywords.</span>
+            </a>
+
+            <a href="https://www.geeksforgeeks.org/arrays-in-java/" target="_blank" class="citation-link">
+                <span class="citation-category">Arrays</span>
+                <strong>GeeksforGeeks: Arrays in Java</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Resources utilized for standard and parallel array configurations.</span>
+            </a>
+
+            <a href="https://docs.oracle.com/javase/8/docs/api/java/util/ArrayList.html" target="_blank" class="citation-link">
+                <span class="citation-category">ArrayLists</span>
+                <strong>Oracle Java Documentation: ArrayList Class</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Official documentation for ArrayList initialization, syntax, and methods.</span>
+            </a>
+
+            <a href="https://www.programiz.com/java-programming/recursion" target="_blank" class="citation-link">
+                <span class="citation-category">Recursion</span>
+                <strong>Programiz: Java Recursion</strong><br>
+                <span style="color: var(--text-muted); font-size: 0.9rem;">Explanations of base cases and method stacking to prevent infinite loops.</span>
+            </a>
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="citations.html">Citations</a>
+            </div>
+        </div>
+        <p style="text-align:center; color: var(--text-muted); margin-top: 2rem; font-size:0.9rem;">Created entirely as an original work for the ICS Culminating Project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

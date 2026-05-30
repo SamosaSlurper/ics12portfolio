@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Cycle Sort | ICS Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="experience.html">Experience</a>
+            <a href="learning.html">Course Learning</a>
+            <a href="tutorial.html" class="active">Tutorial</a>
+            <a href="future.html">Future Goals</a>
+            <a href="citations.html">Citations</a>
+        </div>
+    </nav>
+    <div style="height: 80px;"></div>
+
+    <header class="page-header">
+        <h1 class="animate-up">Tutorial: <span style="color: var(--accent-secondary);">Cycle Sort</span></h1>
+    </header>
+
+    <section class="section-container" style="padding-top: 0; max-width: 900px;">
+        <div class="glass-card animate-up delay-1" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">The Basics</h2>
+            <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+                Cycle sort is an in-place sorting algorithm that sorts an array by minimizing the number of memory writes. Elements are shifted constantly and replace the position of other elements in a circular fashion until all the elements are in their correct positions.
+            </p>
+            <h4 style="color: var(--text-main); margin-bottom: 0.5rem; font-size: 1.1rem;">Complexity</h4>
+            <ul style="list-style: none; padding: 0; color: var(--text-muted); line-height: 1.6;">
+                <li><strong>Time Complexity:</strong> O(N<sup>2</sup>) for worst, average, and best cases. This is because to find the correct position of an element, we basically have to count all elements smaller than it across the array.</li>
+                <li><strong>Space Complexity:</strong> O(1). Since it's an in-place sorting algorithm, it doesn't need any extra space.</li>
+            </ul>
+        </div>
+
+        <div class="glass-card animate-up delay-2" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">How It Works</h2>
+            <p style="line-height: 1.6; margin-bottom: 1rem;">
+                The concept is pretty easy to grasp. You take an element, and count how many elements in the rest of the array are smaller than it. That count tells us the index where our element belongs at. We move it to that index, and kick out (or give the boot) to whichever element is already sitting there.
+            </p>
+            <p style="line-height: 1.6; margin-bottom: 1rem;">
+                Then, we take that kicked-out element and do the same thing: find out how many elements are smaller than it to find its correct index, and move it there. We repeat this process until the initial element's index position is filled with the appropriate element. This completes one "cycle". A "cycle" is counted when an element reaching the index position of the initial value that was moved. It then checks whether the loop is in order or not. If it isn't the program will move to a different element that is unsorted and procede with the process until the array is fully sorted.
+            </p>
+            <div style="background: rgba(0,255,102,0.1); border-left: 4px solid var(--accent-primary); padding: 1rem; border-radius: 4px; margin: 1.5rem 0;">
+                <strong style="color: var(--accent-primary);">Important Note:</strong> If an element is already in the correct position from the start, nothing happens. We just move on to the next index and it does NOT does not count as a cycle. A cycle is only counted when an element is actually moved.
+            </div>
+        </div>
+
+        <div class="glass-card animate-up delay-3">
+            <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">An Example</h2>
+            <p style="line-height: 1.6; margin-bottom: 1.5rem;">
+                Let's look at an example array: <code>[5, 2, 4, 1, 3]</code>. We'll track the moves and count the cycles.
+            </p>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+                <div style="flex: 1 1 400px; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px;">
+                    <h4 style="color: var(--accent-gold); margin-bottom: 0.5rem;">Cycle 1: Starting at index 0 (Value = 5)</h4>
+                    <ul style="color: var(--text-muted); line-height: 1.6; padding-left: 1.5rem;">
+                        <li>Count elements smaller than <code>5</code>. There are 4 of them (2, 4, 1, 3). So <code>5</code> goes to index 4.</li>
+                        <li>Move <code>5</code> to index 4. Kick out the element there (which is <code>3</code>).</li>
+                        <li>Now we have to place <code>3</code>. Count elements smaller than <code>3</code>. There are 2 of them (2, 1). So <code>3</code> goes to index 2.</li>
+                        <li>Move <code>3</code> to index 2. Kick out the element there (which is <code>4</code>).</li>
+                        <li>Now we have to place <code>4</code>. Count elements smaller than <code>4</code>. There are 3 of them (2, 1, 3). So <code>4</code> goes to index 3.</li>
+                        <li>Move <code>4</code> to index 3. Kick out the element there (which is <code>1</code>).</li>
+                        <li>Now we have to place <code>1</code>. Count elements smaller than <code>1</code>. There are 0 of them. So <code>1</code> goes to index 0.</li>
+                        <li>Since index 0 is our starting position, we put <code>1</code> there and <strong>Cycle 1 is complete!</strong></li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: var(--text-main);">Current Array: <code>[1, 2, 3, 4, 5]</code></p>
+                </div>
+                
+                <div style="flex: 0 1 300px; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 8px; text-align: center; position: sticky; top: 100px;">
+                    <h4 style="color: var(--accent-secondary); margin-bottom: 1.5rem;">Live Demo</h4>
+                    <div id="demo-blocks" style="display: flex; gap: 8px; justify-content: center; height: 50px; position: relative;">
+                    </div>
+                    <div id="demo-status" style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--accent-gold); min-height: 40px; line-height: 1.4;">
+                        Initializing...
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .sort-block {
+                    width: 40px;
+                    height: 40px;
+                    background: var(--bg-glass);
+                    border: 1px solid var(--accent-primary);
+                    border-radius: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: bold;
+                    color: var(--text-main);
+                    transition: all 0.5s ease;
+                }
+                .sort-block.highlight {
+                    background: rgba(0, 255, 102, 0.2);
+                    transform: translateY(-10px);
+                    box-shadow: 0 5px 15px rgba(0, 255, 102, 0.3);
+                }
+                .sort-block.sorted {
+                    background: rgba(255, 255, 255, 0.1);
+                    border-color: var(--text-muted);
+                    color: var(--text-muted);
+                }
+            </style>
+            
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const container = document.getElementById('demo-blocks');
+                    const status = document.getElementById('demo-status');
+                    
+                    const steps = [
+                        { arr: [5, 2, 4, 1, 3], active: -1, msg: "Initial Array: [5, 2, 4, 1, 3]" },
+                        { arr: ['-', 2, 4, 1, 5], active: 4, msg: "5 moves to index 4. 3 is kicked out." },
+                        { arr: ['-', 2, 3, 1, 5], active: 2, msg: "3 moves to index 2. 4 is kicked out." },
+                        { arr: ['-', 2, 3, 4, 5], active: 3, msg: "4 moves to index 3. 1 is kicked out." },
+                        { arr: [1, 2, 3, 4, 5], active: 0, msg: "1 moves to index 0. Cycle 1 is complete!" },
+                        { arr: [1, 2, 3, 4, 5], active: -1, msg: "Array is sorted! Restarting..." }
+                    ];
+                    
+                    let currentStep = 0;
+                    
+                    function renderStep() {
+                        const step = steps[currentStep];
+                        container.innerHTML = '';
+                        
+                        step.arr.forEach((val, idx) => {
+                            const block = document.createElement('div');
+                            block.className = 'sort-block';
+                            if (idx === step.active) {
+                                block.classList.add('highlight');
+                            } else if (val !== '-' && currentStep === steps.length - 1) {
+                                block.classList.add('sorted');
+                            }
+                            block.textContent = val;
+                            container.appendChild(block);
+                        });
+                        
+                        status.textContent = step.msg;
+                        
+                        currentStep = (currentStep + 1) % steps.length;
+                        
+                        let delay = 2000;
+                        if (currentStep === 1) delay = 1500;
+                        if (currentStep === 0) delay = 3000;
+                        
+                        setTimeout(renderStep, delay);
+                    }
+                    
+                    renderStep();
+                });
+            </script>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="citations.html">Citations</a>
+            </div>
+        </div>
+        <p style="text-align:center; color: var(--text-muted); margin-top: 2rem; font-size:0.9rem;">Created entirely as an original work for the ICS Culminating Project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

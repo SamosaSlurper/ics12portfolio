@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP-1: UML & Encapsulation | ICS Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .layout-container {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .section-box {
+            scroll-margin-top: 100px;
+        }
+
+        .sidebar-nav {
+            position: sticky;
+            top: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .sidebar-btn {
+            display: block;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .sidebar-btn:hover {
+            background: rgba(0, 255, 102, 0.1);
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 900px) {
+            .layout-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-nav {
+                position: static;
+                margin-bottom: 2rem;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .sidebar-btn {
+                flex: 1 1 200px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="logo">
+            <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="experience.html">Experience</a>
+            <a href="learning.html" class="active">Course Learning</a>
+            <a href="tutorial.html">Tutorial</a>
+            <a href="future.html">Future Goals</a>
+            <a href="citations.html">Citations</a>
+        </div>
+    </nav>
+    <div style="height: 80px;"></div>
+
+    <header class="page-header" style="padding-bottom: 2rem;">
+        <div class="animate-up" style="margin-bottom: 2rem;">
+            <a href="learning.html" style="color: var(--text-muted); font-size: 0.9rem;">&larr; Back to Course Learning</a>
+        </div>
+        <h1 class="animate-up delay-1">OOP-1: <br><span style="color: var(--accent-gold); font-size: 2.5rem;">UML & Encapsulation</span></h1>
+    </header>
+
+    <section class="section-container" style="padding-top: 0; max-width: 1200px;">
+        <div class="layout-container animate-up delay-2">
+            
+            <!-- Main Content Boxes -->
+            <div class="main-content">
+                <div id="intro" class="glass-card section-box">
+                    <h2 style="color: var(--accent-primary);">Assignment Intro</h2>
+                    <p style="margin-top: 1rem; line-height: 1.6;">
+                        In the first OOP (Object Oriented Programming) unit, we discovered how to create, read and understand a UML (Unified Modeling Language) diagram. The "Object Oriented Learning Excercises Set 1" was primarily about understanding UML diagrams that were given (as seen in the photo) and being able to write code based off of it.
+                    </p>
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <img src="uml-diagram.png" alt="Person UML Diagram" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-glass); background: white; padding: 10px;">
+                    </div>
+                    <h3 style="color: var(--accent-gold); margin-top: 2rem;">Code Snippet</h3>
+                    <div class="code-snippet" style="margin-top: 1rem;">
+<pre><code>public class Person {
+    private String fname;
+    private String lname;
+    private String date;  
+    private double height;  
+    private double weight;  
+
+    public Person(String first, String last, String dob, double h, double w) {
+        fname = first;
+        lname = last;
+        date = dob;
+        height = h;
+        weight = w;
+    }
+
+    public void setName(String first, String last) {
+        fname = first;
+        lname = last;
+    }
+
+    public boolean setWeight(double w) {
+        if (w > 0) {
+            weight = w;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setHeight(double h) {
+        if (h > 0) {
+            height = h;
+            return true;
+        }
+        return false;
+    }
+
+    public String getName() {
+        return fname + " " + lname;
+    }
+
+    public String getDOB() {
+        return date;
+    }
+
+    public int getDOB_year() {
+        return Integer.parseInt(date.substring(6));
+    }
+
+    public int getDOB_month() {
+        return Integer.parseInt(date.substring(0, 2));
+    }
+
+    public int getDOB_day() {
+        return Integer.parseInt(date.substring(3, 5));
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+}</code></pre>
+                    </div>
+                </div>
+                <div id="concept" class="glass-card section-box">
+                    <h2 style="color: var(--accent-primary);">Programming Concept</h2>
+                    <p style="margin-top: 1rem; line-height: 1.6;">
+                        While it may look intimidating, understanding UML is not as hard as it looks. The top portion has the name of the class followed by attributes which in this case are number, colour etc. Along with the attributes, after a semicolon is the variable type (int, String, boolean). Succeeding this, we have the constructor class followed by both return and void methods.
+                    </p>
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <img src="uml-house.png" alt="House UML Diagram" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-glass); background: white; padding: 10px;">
+                    </div>
+                </div>
+                <div id="challenges" class="glass-card section-box">
+                    <h2 style="color: var(--accent-primary);">Challenges</h2>
+                    <p style="margin-top: 1rem; line-height: 1.6;">
+                        While understanding the overall concept of UML diagrams was relatively simple, this assignment was VERY tedious and required a significant amount of time to complete it to perfection. Apart from that it was a pretty straightforward assignment that did not require too much brain power. 
+                    </p>
+                </div>
+                <div id="solutions" class="glass-card section-box">
+                    <h2 style="color: var(--accent-primary);">Solutions</h2>
+                    <p style="margin-top: 1rem; line-height: 1.6;">
+                        As my challenges for this concept were strictly because of my own time sense and time management, the only solution I would say that I reached was completing this assignment with eye breaks in between to make sure I wasn't over-stressing myself and spreading the work across multiple days.
+                    </p>
+                </div>
+                <div id="reflection" class="glass-card section-box">
+                    <h2 style="color: var(--accent-primary);">Reflection</h2>
+                    <p style="margin-top: 1rem; line-height: 1.6;">
+                        As I missed the day where it was first introduced, it looked scary at first, but eventually I realize how straightforward it was and was able to manipulate, create and read my own UML diagrams with relative ease. Overall, it was one of the easier concepts we learned.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Sidebar Navigation -->
+            <div class="sidebar-nav">
+                <div class="glass-card" style="padding: 1.5rem;">
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-muted); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px;">Navigation</h3>
+                    <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                        <a href="#intro" class="sidebar-btn">Assignment Intro</a>
+                        <a href="#concept" class="sidebar-btn">Programming Concept</a>
+                        <a href="#challenges" class="sidebar-btn">Challenges</a>
+                        <a href="#solutions" class="sidebar-btn">Solutions</a>
+                        <a href="#reflection" class="sidebar-btn">Reflection</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span style="color: var(--accent-primary);">&lt;/&gt;</span> Pranav Vellanki
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="citations.html">Citations</a>
+            </div>
+        </div>
+        <p style="text-align:center; color: var(--text-muted); margin-top: 2rem; font-size:0.9rem;">Created entirely as an original work for the ICS Culminating Project.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Smooth scrolling for sidebar links
+        document.querySelectorAll('.sidebar-btn').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
