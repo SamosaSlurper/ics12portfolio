@@ -54,6 +54,68 @@
             </div>
         </div>
 
+        <div class="glass-card animate-up" style="margin-bottom: 2rem;">
+            <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">Syntax</h2>
+
+            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 4px;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">1. Loop Through the Array</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Starting Point</p>
+                    <div class="code-snippet" style="margin: 0; padding: 1rem;">
+<pre><code>for (int start = 0; start &lt; array.length - 1; start++) {
+    int item = array[start];
+    int pos = start;</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 4px;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">2. Count Smaller Elements</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Target Index</p>
+                    <div class="code-snippet" style="margin: 0; padding: 1rem;">
+<pre><code>    for (int i = start + 1; i &lt; array.length; i++) {
+        if (array[i] &lt; item) {
+            pos++; // increment position
+        }
+    }</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 4px;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">3. Handle Duplicates & Skip Correct Elements</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Skip Duplicates</p>
+                    <div class="code-snippet" style="margin: 0; padding: 1rem;">
+<pre><code>    if (pos == start) continue; // already sorted
+
+    while (item == array[pos]) {
+        pos++; // skip duplicate
+    }</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 4px;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">4. Swap & Complete the Cycle</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Final Swap</p>
+                    <div class="code-snippet" style="margin: 0; padding: 1rem;">
+<pre><code>    if (pos != start) {
+        int temp = item;
+        item = array[pos];
+        array[pos] = temp; // swap
+    }
+} // repeat until you return to starting index</code></pre>
+                    </div>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.03); border-left: 4px solid var(--accent-primary); padding: 1.5rem; border-radius: 4px;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">5. Count Cycles</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">Track Cycle Count</p>
+                    <div class="code-snippet" style="margin: 0; padding: 1rem;">
+<pre><code>    cycles++; // count cycles
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="glass-card animate-up delay-3">
             <h2 style="color: var(--accent-primary); margin-bottom: 1.5rem;">An Example</h2>
             <p style="line-height: 1.6; margin-bottom: 1.5rem;">
